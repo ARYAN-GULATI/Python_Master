@@ -12,4 +12,6 @@ def add(a,b):
     return(a+b)
 
 def print_name():
-    print(__name__)
+    print(__name__) #this will give __customname__ bcz callong through some func
+    
+#print(__name__) this will give __main__ calling from func    
