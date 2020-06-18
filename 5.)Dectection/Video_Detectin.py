@@ -6,6 +6,8 @@ model = cv2.CascadeClassifier("./haarcascade_frontalface_alt.xml")
 
 while True:
 	ret, frame = cam.read()
+
+
 	if ret == True:
 		gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) # bgr -> grayscale conversion
 		faces = model.detectMultiScale(gray_frame, 1.3, 5)
