@@ -9,7 +9,7 @@ face_data = []
 
 dataset_path = "./data/"
 
-# name  = input("Enter your name : ")
+name  = input("Enter your name : ")
 
 
 while True:
@@ -18,6 +18,8 @@ while True:
         continue
     gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) # bgr -> grayscale conversion
     faces = face_cascade.detectMultiScale(gray_frame, 1.3, 5)
+    
+    #face_section =None
     
     for face in faces:
         x, y, w, h = face
@@ -42,12 +44,12 @@ cv2.destroyAllWindows()
 print(len(face_data))
 print(face_data[0].shape)
 
-# face_data = np.array(face_data)
-# face_data = face_data.reshape(face_data.shape[0], 3*100*100)
-# print(face_data.shape)
+face_data = np.array(face_data) # making Face data list-->numpy array
+face_data = face_data.reshape(face_data.shape[0], 3*100*100) #we can also put -1 instead of 30000 so it automatically alot sizre for features
+print(face_data.shape)
 
-# np.save(dataset_path+name + ".npy", face_data)
-# print("data saved at " + dataset_path+name + ".npy")
+np.save(dataset_path+name + ".npy", face_data) #it saves (where to save director, what to save)
+print("data saved at " + dataset_path+name + ".npy")
 
 
 
